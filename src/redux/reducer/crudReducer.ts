@@ -3,7 +3,7 @@ import { types } from '../types/types';
 
 const { create, fetchAll, toDelete, update } = types
 
-const reducer = (pulls = [], action: Actions) => {
+const crudReducer = (pulls = [], action: Actions) => {
     switch (action.type) {
         case fetchAll:
             return action.payload;
@@ -20,4 +20,4 @@ const reducer = (pulls = [], action: Actions) => {
     }
 };
 
-export default reducer;
+export default crudReducer;
