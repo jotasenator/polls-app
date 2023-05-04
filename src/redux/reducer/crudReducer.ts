@@ -1,22 +1,32 @@
-import { Actions, Pull } from '../../interfaces/crudInterface';
+import { Actions, Pull, State } from '../../interfaces/crudInterface';
 import { types } from '../types/types';
 
 const { create, fetchAll, toDelete, update } = types
 
-const crudReducer = (pulls = [], action: Actions) => {
+const initialState: State = {
+    pulls: []
+}
+
+const crudReducer = (state = initialState, action: Actions) => {
     switch (action.type) {
         case fetchAll:
-            return action.payload;
+            return { ...state, pulls: action.payload };
         case create:
-            return [...pulls, action.payload];
+            return { ...state, pulls: [...state.pulls, action.payload] };
         case update:
-            return pulls.map((pull: Pull) =>
-                pull._id === action.payload._id ? action.payload : pull
-            );
+            return {
+                ...state,
+                pulls: state.pulls.map((pull: Pull) =>
+                    pull._id === action.payload._id ? action.payload : pull
+                )
+            };
         case toDelete:
-            return pulls.filter((pull: Pull) => pull._id !== action.payload);
+            return {
+                ...state,
+                pulls: state.pulls.filter((pull: Pull) => pull._id !== action.payload)
+            };
         default:
-            return pulls;
+            return state;
     }
 };
 

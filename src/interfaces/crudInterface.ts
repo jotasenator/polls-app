@@ -10,3 +10,11 @@ export interface Actions {
     type: string;
     payload: any;
 }
+
+export interface State {
+    pulls: Pull[]
+}
+
+export interface RootState {
+    crudReducer: State;
+}

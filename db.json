@@ -1,0 +1,18 @@
+{
+  "pulls": [
+    {
+      "_id": "1",
+      "title": "Title 1",
+      "description": "Description 1",
+      "creator": "Creator 1",
+      "createdAt": "2023-05-01T20:00:00.000Z"
+    },
+    {
+      "_id": "2",
+      "title": "Title 2",
+      "description": "Description 2",
+      "creator": "Creator 2",
+      "createdAt": "2023-05-01T20:00:00.000Z"
+    }
+  ]
+}
