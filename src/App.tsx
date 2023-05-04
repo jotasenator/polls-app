@@ -1,10 +1,10 @@
 import "./App.css";
-import { PollList } from "./components/PollList";
+import { RoutesComponent } from "./routes/Routes";
 
 function App() {
   return (
     <div className="App">
-      <PollList />
+      <RoutesComponent />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 {
   "polls": [
     {
-      "id": 1,
+      "_id": 1,
       "question": "What is the capital of France?",
       "options": [
         {
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "id": 1,
+      "_id": 2,
       "question": "What is the capital of Cuba?",
       "options": [
         {
