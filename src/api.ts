@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { Pull } from './interfaces/crudInterface';
+import { Poll } from './interfaces/crudInterface';
 
 const API_URL = 'http://localhost:3000';
 
-export const getPulls = () => axios.get<Pull[]>(`${API_URL}/pulls`);
-export const createPull = (pull: Pull) => axios.post<Pull>(`${API_URL}/pulls`, pull);
-export const updatePull = (id: string, pull: Pull) => axios.put<Pull>(`${API_URL}/pulls/${id}`, pull);
-export const deletePull = (id: string) => axios.delete(`${API_URL}/pulls/${id}`);
+export const getPolls = () => axios.get<Poll[]>(`${API_URL}/polls`);
+export const createPoll = (poll: Poll) => axios.post<Poll>(`${API_URL}/polls`, poll);
+export const updatePoll = (id: string, poll: Poll) => axios.put<Poll>(`${API_URL}/polls/${id}`, poll);
+export const deletePoll = (id: string) => axios.delete(`${API_URL}/polls/${id}`);
 

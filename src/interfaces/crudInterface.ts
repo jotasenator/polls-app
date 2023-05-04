@@ -1,4 +1,4 @@
-export interface Pull {
+export interface Poll {
     _id: string;
     title: string;
     description: string;
@@ -12,7 +12,7 @@ export interface Actions {
 }
 
 export interface State {
-    pulls: Pull[]
+    polls: Poll[]
 }
 
 export interface RootState {

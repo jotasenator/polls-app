@@ -1,18 +1,8 @@
-import { applyMiddleware, compose, createStore } from "redux";
-import thunk from "redux-thunk";
-import { rootReducer } from '../reducer/rootReducer'
+import { configureStore } from '@reduxjs/toolkit';
+import { rootReducer } from '../reducer/rootReducer';
 
-declare global {
-    interface Window {
-        __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-    }
-}
+export const store = configureStore({
+    reducer: rootReducer,
+});
 
-const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
-
-export const store = createStore(
-    rootReducer,
-    composeEnhancers(
-        applyMiddleware(thunk)
-    )
-)
+export type AppDispatch = typeof store.dispatch;

@@ -1,10 +1,10 @@
 import "./App.css";
-import { PullList } from "./components/PullList";
+import { PollList } from "./components/PollList";
 
 function App() {
   return (
     <div className="App">
-      <PullList />
+      <PollList />
     </div>
   );
 }

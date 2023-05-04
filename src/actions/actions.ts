@@ -1,13 +1,13 @@
 import { Dispatch } from 'redux';
 import * as api from "../api";
-import { Pull } from '../interfaces/crudInterface';
+import { Poll } from '../interfaces/crudInterface';
 import { types } from '../redux/types/types';
 
 const { create, toDelete, fetchAll, update } = types;
 
-export const fetchPulls = () => async (dispatch: Dispatch) => {
+export const fetchPolls = () => async (dispatch: Dispatch) => {
     try {
-        const { data } = await api.getPulls();
+        const { data } = await api.getPolls();
 
         dispatch({ type: fetchAll, payload: data });
     } catch (error) {
@@ -17,9 +17,9 @@ export const fetchPulls = () => async (dispatch: Dispatch) => {
     }
 };
 
-export const createPull = (pull: Pull) => async (dispatch: Dispatch) => {
+export const createPoll = (poll: Poll) => async (dispatch: Dispatch) => {
     try {
-        const { data } = await api.createPull(pull);
+        const { data } = await api.createPoll(poll);
 
         dispatch({ type: create, payload: data });
     } catch (error) {
@@ -29,9 +29,9 @@ export const createPull = (pull: Pull) => async (dispatch: Dispatch) => {
     }
 };
 
-export const updatePull = (id: string, pull: Pull) => async (dispatch: Dispatch) => {
+export const updatePoll = (id: string, poll: Poll) => async (dispatch: Dispatch) => {
     try {
-        const { data } = await api.updatePull(id, pull);
+        const { data } = await api.updatePoll(id, poll);
 
         dispatch({ type: update, payload: data });
     } catch (error) {
@@ -41,9 +41,9 @@ export const updatePull = (id: string, pull: Pull) => async (dispatch: Dispatch)
     };
 }
 
-export const deletePull = (id: string) => async (dispatch: Dispatch) => {
+export const deletePoll = (id: string) => async (dispatch: Dispatch) => {
     try {
-        await api.deletePull(id);
+        await api.deletePoll(id);
 
         dispatch({ type: toDelete, payload: id });
     } catch (error) {

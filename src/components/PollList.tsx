@@ -1,24 +1,25 @@
 import React, { useEffect } from "react";
 import { localeDate } from "../helpers/localeDate";
 
-import { useDispatch, useSelector } from "react-redux";
-import { fetchPulls } from "../actions/actions";
+import { useSelector } from "react-redux";
+import { fetchPolls } from "../actions/actions";
 import { RootState } from "../interfaces/crudInterface";
+import { useAppDispatch } from "../redux/hook/useAppDispatch";
 
-export const PullList: React.FC = () => {
-  const dispatch = useDispatch();
+export const PollList: React.FC = () => {
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchPulls());
+    dispatch(fetchPolls());
   }, [dispatch]);
 
-  const pulls = useSelector((state: RootState) => state.crudReducer.pulls);
+  const polls = useSelector((state: RootState) => state.crudReducer.polls);
 
   return (
     <div>
       {
         <ul>
-          {pulls?.map(({ _id, title, description, creator, createdAt }) => (
+          {polls?.map(({ _id, title, description, creator, createdAt }) => (
             <li key={_id}>
               <h3>{title}</h3>
               <p>{description}</p>
