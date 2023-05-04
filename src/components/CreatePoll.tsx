@@ -28,13 +28,27 @@ export const CreatePoll: React.FC = () => {
         ...option,
       })),
     };
-    dispatch(createPoll(poll));
-    dispatch(increaseAction());
-    navigate("/");
+    if (question === "") {
+      alert("Please enter a question.");
+    } else if (inputValues.map((x) => x.text).includes("")) {
+      alert("Please fill in all answer options.");
+    } else if (!inputValues.map((x) => x.isCorrect).includes(true)) {
+      alert("Please select at least one correct answer.");
+    } else {
+      dispatch(createPoll(poll));
+      dispatch(increaseAction());
+      navigate("/");
+    }
   };
 
   const handleAddInput = () => {
-    setInputValues([...inputValues, { text: "", isCorrect: false }]);
+    if (question === "") {
+      alert("Please enter a question.");
+    } else if (inputValues.map((x) => x.text).includes("")) {
+      alert("Please fill in all answer options.");
+    } else {
+      setInputValues([...inputValues, { text: "", isCorrect: false }]);
+    }
   };
 
   const handleInputChange = (
