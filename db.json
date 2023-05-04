@@ -58,6 +58,69 @@
           "isCorrect": false
         }
       ]
+    },
+    {
+      "id": 5,
+      "question": "eres guanajo",
+      "options": [
+        {
+          "id": 1,
+          "text": "si",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "text": "no",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "eres loam pero nadie te la toca",
+      "options": [
+        {
+          "id": 1,
+          "text": "si",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "text": "no",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "feo",
+      "options": [
+        {
+          "id": 1,
+          "text": "si",
+          "isCorrect": false
+        },
+        {
+          "id": 2,
+          "text": "",
+          "isCorrect": false
+        },
+        {
+          "id": 3,
+          "text": "",
+          "isCorrect": false
+        },
+        {
+          "id": 4,
+          "text": "",
+          "isCorrect": false
+        },
+        {
+          "id": 5,
+          "text": "",
+          "isCorrect": false
+        }
+      ]
     }
   ]
 }

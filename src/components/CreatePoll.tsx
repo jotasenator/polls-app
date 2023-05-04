@@ -57,9 +57,11 @@ export const CreatePoll: React.FC = () => {
       Create a New Poll
       <form onSubmit={handleSubmit}>
         <div className="button-container ">
-          <button type="button" onClick={handleAddInput}>
-            Add Answer Options
-          </button>
+          <Button
+            buttonText="Add Answer Options"
+            type="button"
+            onClick={handleAddInput}
+          />
           <Button buttonText="Create Poll" type="submit" />
         </div>
         <div className="create-poll-container">
