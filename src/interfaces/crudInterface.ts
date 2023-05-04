@@ -1,9 +1,13 @@
 export interface Poll {
     _id: string;
-    title: string;
-    description: string;
-    creator: string;
-    createdAt: Date;
+    question: string;
+    options: Option[];
+}
+
+export interface Option {
+    id: number;
+    text: string;
+    isCorrect: boolean;
 }
 
 export interface Actions {

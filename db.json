@@ -1,18 +1,46 @@
 {
   "polls": [
     {
-      "_id": "1",
-      "title": "Title 1",
-      "description": "Description 1",
-      "creator": "Creator 1",
-      "createdAt": "2023-05-01T20:00:00.000Z"
+      "id": 1,
+      "question": "What is the capital of France?",
+      "options": [
+        {
+          "id": 1,
+          "text": "Paris",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "text": "London",
+          "isCorrect": false
+        },
+        {
+          "id": 3,
+          "text": "Berlin",
+          "isCorrect": false
+        }
+      ]
     },
     {
-      "_id": "2",
-      "title": "Title 2",
-      "description": "Description 2",
-      "creator": "Creator 2",
-      "createdAt": "2023-05-01T20:00:00.000Z"
+      "id": 1,
+      "question": "What is the capital of Cuba?",
+      "options": [
+        {
+          "id": 1,
+          "text": "Havana",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "text": "London",
+          "isCorrect": false
+        },
+        {
+          "id": 3,
+          "text": "Berlin",
+          "isCorrect": false
+        }
+      ]
     }
   ]
 }
