@@ -2,3 +2,29 @@
   background-color: aquamarine;
   cursor: pointer;
 }
+.create-poll-container > * {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button-container {
+  align-items: center;
+  display: flex;
+  justify-content: right;
+}
+input[type="text"] {
+  border: none;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 25px;
+  padding: 10px;
+  width: 500px;
+  transition: all 0.3 s ease-in-out;
+}
+
+input[type="text"]:focus {
+  border-bottom-color: #4d90fe;
+  outline: none;
+  scale: 1.2;
+}
