@@ -1,6 +1,5 @@
 import React from "react";
 import { State } from "../interfaces/crudInterface";
-import { v4 as uuidv4 } from "uuid";
 
 export const PollListItems: React.FC<State> = ({ polls }) => {
   const handleAnswer = (correct: boolean) => {
@@ -9,8 +8,8 @@ export const PollListItems: React.FC<State> = ({ polls }) => {
 
   return (
     <ul>
-      {polls.map(({ _id, options, question }) => (
-        <li key={_id}>
+      {polls.map(({ id, options, question }) => (
+        <li key={id}>
           <h3>{question}</h3>
           <ul>
             {options.map(({ id, text, isCorrect }) => (

@@ -1,4 +1,5 @@
 export const types: Types = {
+    increase: 'INCREASE',
     fetchAll: 'FETCH_ALL',
     create: 'CREATE',
     update: 'UPDATE',
@@ -6,6 +7,7 @@ export const types: Types = {
 }
 
 interface Types {
+    increase: string,
     fetchAll: string,
     create: string,
     update: string,

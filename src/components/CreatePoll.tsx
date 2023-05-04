@@ -1,17 +1,40 @@
 import React, { useState } from "react";
 import { Button } from "./buttons/Button";
+import { createPoll, increaseAction } from "../actions/actions";
+import { useAppDispatch } from "../redux/hook/useAppDispatch";
+import { Poll } from "../interfaces/crudInterface";
+import { useSelector } from "react-redux";
+
+import { useNavigate } from "react-router-dom";
 
 export const CreatePoll: React.FC = () => {
-  const [inputValues, setInputValues] = useState([""]);
+  const dispatch = useAppDispatch();
+  const { value } = useSelector((state: any) => state.increaseReducer);
+
   const [question, setQuestion] = useState("");
+  const [inputValues, setInputValues] = useState([
+    { text: "", isCorrect: false },
+  ]);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    // handle form submission here
+    const poll: Poll = {
+      id: value,
+      question,
+      options: inputValues.map((option, index) => ({
+        id: index + 1,
+        ...option,
+      })),
+    };
+    dispatch(createPoll(poll));
+    dispatch(increaseAction());
+    navigate("/");
   };
 
   const handleAddInput = () => {
-    setInputValues([...inputValues, ""]);
+    setInputValues([...inputValues, { text: "", isCorrect: false }]);
   };
 
   const handleInputChange = (
@@ -19,7 +42,13 @@ export const CreatePoll: React.FC = () => {
     index: number
   ) => {
     const newInputValues = [...inputValues];
-    newInputValues[index] = event.target.value;
+    newInputValues[index].text = event.target.value;
+    setInputValues(newInputValues);
+  };
+
+  const handleCheckboxChange = (index: number) => {
+    const newInputValues = [...inputValues];
+    newInputValues[index].isCorrect = !newInputValues[index].isCorrect;
     setInputValues(newInputValues);
   };
 
@@ -42,14 +71,22 @@ export const CreatePoll: React.FC = () => {
               onChange={(event) => setQuestion(event.target.value)}
             />
           </label>
+
           {inputValues.map((inputValue, index) => (
             <label key={index}>
               Answer {index + 1}:
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(event) => handleInputChange(event, index)}
-              />
+              <div>
+                <input
+                  type="text"
+                  value={inputValue.text}
+                  onChange={(event) => handleInputChange(event, index)}
+                />
+                <input
+                  type="checkbox"
+                  checked={inputValue.isCorrect}
+                  onChange={() => handleCheckboxChange(index)}
+                />
+              </div>
             </label>
           ))}
         </div>
