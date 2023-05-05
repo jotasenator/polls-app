@@ -1,4 +1,36 @@
 {
   "polls": [
+    {
+      "id": 1,
+      "question": "do u lie",
+      "options": [
+        {
+          "id": 1,
+          "text": "yes",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "text": "no",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "cual es el caballo blanco de maceo",
+      "options": [
+        {
+          "id": 1,
+          "text": "negro",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "text": "blanco",
+          "isCorrect": false
+        }
+      ]
+    }
   ]
 }

@@ -16,7 +16,7 @@ export const PollList: React.FC = () => {
   const polls = useSelector((state: RootState) => state.crudReducer.polls);
 
   return (
-    <div>
+    <div className="container">
       <PollListItems polls={polls} />
     </div>
   );

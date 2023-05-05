@@ -1,3 +1,11 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
 .options-list:hover {
   background-color: aquamarine;
   cursor: pointer;
@@ -43,4 +51,30 @@ input[type="text"]:focus {
 .button-container button:hover {
   background-color: #357ae8;
   transform: scale(1.05);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.options-list {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.options-list:hover {
+  background-color: #e4e4e4;
 }
