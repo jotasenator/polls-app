@@ -3,7 +3,7 @@ import * as api from "../api";
 import { Poll } from '../interfaces/crudInterface';
 import { types } from '../redux/types/types';
 
-const { create, toDelete, fetchAll, update } = types;
+const { create, toDelete, fetchAll, fetchOne, update } = types;
 
 export const fetchPolls = () => async (dispatch: Dispatch) => {
     try {
@@ -14,6 +14,18 @@ export const fetchPolls = () => async (dispatch: Dispatch) => {
         if (error instanceof Error) {
             console.log(error.message);
         };
+    }
+};
+
+export const fetchOnePoll = (id: string) => async (dispatch: Dispatch) => {
+    try {
+        const { data } = await api.getPollById(id);
+
+        dispatch({ type: types.fetchOne, payload: data });
+    } catch (error) {
+        if (error instanceof Error) {
+            console.log(error.message);
+        }
     }
 };
 
@@ -41,7 +53,7 @@ export const updatePoll = (id: string, poll: Poll) => async (dispatch: Dispatch)
     };
 }
 
-export const deletePoll = (id: number) => async (dispatch: Dispatch) => {
+export const deletePoll = (id: string) => async (dispatch: Dispatch) => {
     try {
         await api.deletePoll(id);
 

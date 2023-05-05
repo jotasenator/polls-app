@@ -16,7 +16,8 @@ export interface Actions {
 }
 
 export interface State {
-    polls: Poll[]
+    polls: Poll[];
+    poll?: null | Poll
 }
 
 export interface RootState {

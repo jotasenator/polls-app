@@ -1,12 +1,64 @@
 {
   "polls": [
     {
-      "id": "848bd574-5793-4bc1-9e99-8ce4b33cea1a",
-      "question": "dfv",
+      "id": "ff84c198-6e60-4b92-86d7-47805769d4ae",
+      "question": "jesus y la virgen",
       "options": [
         {
           "id": 1,
-          "text": "dfv",
+          "text": "respuesta 100",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "text": "respuesta 200",
+          "isCorrect": true
+        },
+        {
+          "id": 3,
+          "text": "respuesta 300",
+          "isCorrect": true
+        },
+        {
+          "id": 4,
+          "text": "puerkito puerkito????",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "6d6b263a-fce3-4602-965c-e580bab181bb",
+      "question": "joder que fuerte",
+      "options": [
+        {
+          "id": 1,
+          "text": "respuesta 100",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "text": "respuesta 200",
+          "isCorrect": true
+        },
+        {
+          "id": 3,
+          "text": "candelones con tostones",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "5b01d1cc-5b81-4fd8-8377-7f61fd8e4a0a",
+      "question": "pepe",
+      "options": [
+        {
+          "id": 1,
+          "text": "si",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "text": "no",
           "isCorrect": true
         }
       ]

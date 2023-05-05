@@ -33,7 +33,7 @@ export const sweetCenterSuccess = (title: string) =>
         icon: "success",
         title: title,
         showConfirmButton: false,
-        timer: 1500,
+        timer: 1000,
     });
 
 export const sweetCenterFailure = (title: string) =>
@@ -42,5 +42,5 @@ export const sweetCenterFailure = (title: string) =>
         icon: "error",
         title: title,
         showConfirmButton: false,
-        timer: 1500,
+        timer: 1000,
     });
