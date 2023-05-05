@@ -45,7 +45,7 @@ export const updatePoll = (id: string, poll: Poll) => async (dispatch: Dispatch)
     };
 }
 
-export const deletePoll = (id: string) => async (dispatch: Dispatch) => {
+export const deletePoll = (id: number) => async (dispatch: Dispatch) => {
     try {
         await api.deletePoll(id);
 

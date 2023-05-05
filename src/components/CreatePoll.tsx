@@ -61,10 +61,26 @@ export const CreatePoll: React.FC = () => {
   };
 
   const handleCheckboxChange = (index: number) => {
+    if ([...inputValues][index].text === "") {
+      alert("Please fill the answer option.");
+      return;
+    }
     const newInputValues = [...inputValues];
     newInputValues[index].isCorrect = !newInputValues[index].isCorrect;
     setInputValues(newInputValues);
   };
+
+  const handleDeleteInputValue = (index: number) => {
+    const newInputValues = [...inputValues];
+    newInputValues.splice(index, 1);
+    setInputValues(newInputValues);
+  };
+
+  const isDisabled: boolean = [...inputValues].length <= 1;
+
+  const buttonDeleteInputStyle: React.CSSProperties = isDisabled
+    ? { cursor: "not-allowed" }
+    : {};
 
   return (
     <div>
@@ -101,6 +117,13 @@ export const CreatePoll: React.FC = () => {
                   type="checkbox"
                   checked={inputValue.isCorrect}
                   onChange={() => handleCheckboxChange(index)}
+                />
+                <Button
+                  buttonText={<i>🗑️</i>}
+                  type="button"
+                  onClick={() => handleDeleteInputValue(index)}
+                  disabled={isDisabled}
+                  style={buttonDeleteInputStyle}
                 />
               </div>
             </label>
