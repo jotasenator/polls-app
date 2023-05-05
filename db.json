@@ -1,34 +1,13 @@
 {
   "polls": [
     {
-      "id": 1,
-      "question": "do u lie",
+      "id": "848bd574-5793-4bc1-9e99-8ce4b33cea1a",
+      "question": "dfv",
       "options": [
         {
           "id": 1,
-          "text": "yes",
+          "text": "dfv",
           "isCorrect": true
-        },
-        {
-          "id": 2,
-          "text": "no",
-          "isCorrect": false
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "question": "cual es el caballo blanco de maceo",
-      "options": [
-        {
-          "id": 1,
-          "text": "negro",
-          "isCorrect": true
-        },
-        {
-          "id": 2,
-          "text": "blanco",
-          "isCorrect": false
         }
       ]
     }

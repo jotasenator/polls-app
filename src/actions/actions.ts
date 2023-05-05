@@ -3,11 +3,7 @@ import * as api from "../api";
 import { Poll } from '../interfaces/crudInterface';
 import { types } from '../redux/types/types';
 
-const { create, toDelete, fetchAll, update, increase } = types;
-
-export const increaseAction = () => {
-    return ({ type: increase })
-}
+const { create, toDelete, fetchAll, update } = types;
 
 export const fetchPolls = () => async (dispatch: Dispatch) => {
     try {

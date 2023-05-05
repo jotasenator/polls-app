@@ -1,5 +1,5 @@
 export interface Poll {
-    id: number;
+    id: string;
     question: string;
     options: Option[];
 }

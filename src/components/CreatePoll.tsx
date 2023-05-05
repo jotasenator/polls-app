@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { Button } from "./buttons/Button";
-import { createPoll, increaseAction } from "../actions/actions";
+import { createPoll } from "../actions/actions";
 import { useAppDispatch } from "../redux/hook/useAppDispatch";
 import { Poll } from "../interfaces/crudInterface";
-import { useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
 import { useNavigate } from "react-router-dom";
 
+import { sweetTopEndWarning } from "../helpers/sweetAlert";
+
 export const CreatePoll: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { value } = useSelector((state: any) => state.increaseReducer);
 
   const [question, setQuestion] = useState("");
   const [inputValues, setInputValues] = useState([
@@ -21,7 +22,7 @@ export const CreatePoll: React.FC = () => {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     const poll: Poll = {
-      id: value,
+      id: uuidv4(),
       question,
       options: inputValues.map((option, index) => ({
         id: index + 1,
@@ -29,23 +30,25 @@ export const CreatePoll: React.FC = () => {
       })),
     };
     if (question === "") {
-      alert("Please enter a question.");
+      sweetTopEndWarning("Please enter a question.");
     } else if (inputValues.map((x) => x.text).includes("")) {
-      alert("Please fill in all answer options.");
+      sweetTopEndWarning("Please fill in all answer options.");
     } else if (!inputValues.map((x) => x.isCorrect).includes(true)) {
-      alert("Please select at least one correct answer.");
+    } else if (inputValues.length < 2) {
+      sweetTopEndWarning("Please create at least to questions.");
+    } else if (!inputValues.map((x) => x.isCorrect).includes(true)) {
+      sweetTopEndWarning("Please select at least one correct answer.");
     } else {
       dispatch(createPoll(poll));
-      dispatch(increaseAction());
       navigate("/");
     }
   };
 
   const handleAddInput = () => {
     if (question === "") {
-      alert("Please enter a question.");
+      sweetTopEndWarning("Please enter a question.");
     } else if (inputValues.map((x) => x.text).includes("")) {
-      alert("Please fill in all answer options.");
+      sweetTopEndWarning("Please fill in all answer options.");
     } else {
       setInputValues([...inputValues, { text: "", isCorrect: false }]);
     }
@@ -62,7 +65,7 @@ export const CreatePoll: React.FC = () => {
 
   const handleCheckboxChange = (index: number) => {
     if (inputValues[index].text === "") {
-      alert("Please fill the answer option.");
+      sweetTopEndWarning("Please fill the answer option.");
       return;
     }
     const newInputValues = [...inputValues];
@@ -82,17 +85,24 @@ export const CreatePoll: React.FC = () => {
     ? { cursor: "not-allowed" }
     : {};
 
+  const handleSkip = () => {
+    navigate("/");
+  };
+
   return (
     <div>
-      Create a New Poll
       <form onSubmit={handleSubmit}>
         <div className="button-container ">
-          <Button
-            buttonText="Add Answer Options"
-            type="button"
-            onClick={handleAddInput}
-          />
-          <Button buttonText="Create Poll" type="submit" />
+          <h2>Create a New Poll</h2>
+          <div>
+            <Button
+              buttonText="Add Answer Options"
+              type="button"
+              onClick={handleAddInput}
+            />
+            <Button buttonText="Submit Poll" type="submit" />
+            <Button buttonText="Skip" type="button" onClick={handleSkip} />
+          </div>
         </div>
         <div className="create-poll-container">
           <label>

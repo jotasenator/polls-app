@@ -1,9 +1,12 @@
 import React from "react";
 import { State } from "../interfaces/crudInterface";
+import { sweetCenterFailure, sweetCenterSuccess } from "../helpers/sweetAlert";
 
 export const PollListItems: React.FC<State> = ({ polls }) => {
   const handleAnswer = (correct: boolean) => {
-    correct ? alert("Correct answer") : alert("Wrong answer");
+    correct
+      ? sweetCenterSuccess("Correct answer")
+      : sweetCenterFailure("Wrong answer");
   };
 
   return (
