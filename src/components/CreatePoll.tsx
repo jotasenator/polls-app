@@ -61,7 +61,7 @@ export const CreatePoll: React.FC = () => {
   };
 
   const handleCheckboxChange = (index: number) => {
-    if ([...inputValues][index].text === "") {
+    if (inputValues[index].text === "") {
       alert("Please fill the answer option.");
       return;
     }
