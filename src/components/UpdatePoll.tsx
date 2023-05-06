@@ -7,6 +7,7 @@ import { RootState } from "../interfaces/crudInterface";
 
 import { useNavigate } from "react-router-dom";
 import { Button } from "./buttons/Button";
+import { sweetTopEndWarning } from "../helpers/sweetAlert";
 
 export const UpdatePoll: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -46,11 +47,22 @@ export const UpdatePoll: React.FC = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    id &&
-      dispatch(
-        updatePoll(id, { id: id, question: question, options: options })
-      );
-    navigate("/");
+
+    if (question === "") {
+      sweetTopEndWarning("Please enter a question.");
+    } else if (options.map((x) => x.text).includes("")) {
+      sweetTopEndWarning("Please fill in all answer options.");
+    } else if (options.length < 2) {
+      sweetTopEndWarning("Please create at least two questions.");
+    } else if (!options.map((x) => x.isCorrect).includes(true)) {
+      sweetTopEndWarning("Please select at least one correct answer.");
+    } else {
+      id &&
+        dispatch(
+          updatePoll(id, { id: id, question: question, options: options })
+        );
+      navigate("/");
+    }
   };
 
   const handleIsCorrectChange = (
@@ -78,11 +90,15 @@ export const UpdatePoll: React.FC = () => {
     setOptions(newOptions);
   };
 
-  const isDisabled: boolean = false;
+  const isDisabled: boolean = [...options].length <= 1;
 
   const buttonDeleteInputStyle: React.CSSProperties = isDisabled
     ? { cursor: "not-allowed" }
     : {};
+
+  const handleSkip = () => {
+    navigate("/");
+  };
 
   return (
     <div>
@@ -96,6 +112,7 @@ export const UpdatePoll: React.FC = () => {
               onClick={handleAddOption}
             />
             <Button buttonText="Update Poll" type="submit" />
+            <Button buttonText="Skip" type="button" onClick={handleSkip} />
           </div>
         </div>
         <div className="create-poll-container">
@@ -125,7 +142,7 @@ export const UpdatePoll: React.FC = () => {
                   buttonText={<i>🗑️</i>}
                   type="button"
                   onClick={() => handleDeleteInputValue(index)}
-                  disabled={false}
+                  disabled={isDisabled}
                   style={buttonDeleteInputStyle}
                 />
               </div>

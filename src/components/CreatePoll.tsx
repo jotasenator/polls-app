@@ -33,9 +33,8 @@ export const CreatePoll: React.FC = () => {
       sweetTopEndWarning("Please enter a question.");
     } else if (inputValues.map((x) => x.text).includes("")) {
       sweetTopEndWarning("Please fill in all answer options.");
-    } else if (!inputValues.map((x) => x.isCorrect).includes(true)) {
     } else if (inputValues.length < 2) {
-      sweetTopEndWarning("Please create at least to questions.");
+      sweetTopEndWarning("Please create at least two questions.");
     } else if (!inputValues.map((x) => x.isCorrect).includes(true)) {
       sweetTopEndWarning("Please select at least one correct answer.");
     } else {

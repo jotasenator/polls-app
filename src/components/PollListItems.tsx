@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { State } from "../interfaces/crudInterface";
 import { sweetCenterFailure, sweetCenterSuccess } from "../helpers/sweetAlert";
 import { Button } from "./buttons/Button";
