@@ -1,20 +1,5 @@
 {
   "polls": [
-    {
-      "id": "be685f95-7a86-475e-8aeb-8cbe3c0ca601",
-      "question": "r u a liar?",
-      "options": [
-        {
-          "id": 1683334724709,
-          "text": "dcsdcsdc",
-          "isCorrect": true
-        },
-        {
-          "id": 1683336371906,
-          "text": "cacacsacsac",
-          "isCorrect": false
-        }
-      ]
-    }
+    
   ]
 }
