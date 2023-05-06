@@ -1,65 +1,18 @@
 {
   "polls": [
     {
-      "id": "ff84c198-6e60-4b92-86d7-47805769d4ae",
-      "question": "jesus y la virgen",
+      "id": "be685f95-7a86-475e-8aeb-8cbe3c0ca601",
+      "question": "r u a liar?",
       "options": [
         {
-          "id": 1,
-          "text": "respuesta 100",
-          "isCorrect": true
-        },
-        {
-          "id": 2,
-          "text": "respuesta 200",
-          "isCorrect": true
-        },
-        {
-          "id": 3,
-          "text": "respuesta 300",
-          "isCorrect": true
-        },
-        {
-          "id": 4,
-          "text": "puerkito puerkito????",
-          "isCorrect": true
-        }
-      ]
-    },
-    {
-      "id": "6d6b263a-fce3-4602-965c-e580bab181bb",
-      "question": "joder que fuerte",
-      "options": [
-        {
-          "id": 1,
-          "text": "respuesta 100",
-          "isCorrect": true
-        },
-        {
-          "id": 2,
-          "text": "respuesta 200",
-          "isCorrect": true
-        },
-        {
-          "id": 3,
-          "text": "candelones con tostones",
+          "id": 1683334724709,
+          "text": "candela",
           "isCorrect": false
-        }
-      ]
-    },
-    {
-      "id": "5b01d1cc-5b81-4fd8-8377-7f61fd8e4a0a",
-      "question": "pepe",
-      "options": [
-        {
-          "id": 1,
-          "text": "si",
-          "isCorrect": true
         },
         {
-          "id": 2,
-          "text": "no",
-          "isCorrect": true
+          "id": 1683334816188,
+          "text": "mi amol",
+          "isCorrect": false
         }
       ]
     }

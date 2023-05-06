@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../interfaces/crudInterface";
 
 import { useNavigate } from "react-router-dom";
+import { Button } from "./buttons/Button";
 
 export const UpdatePoll: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -62,12 +63,40 @@ export const UpdatePoll: React.FC = () => {
     setOptions(updatedOptions);
   };
 
+  const handleAddOption = () => {
+    const newOption = {
+      id: Date.now(),
+      text: "",
+      isCorrect: false,
+    };
+    setOptions([...options, newOption]);
+  };
+
+  const handleDeleteInputValue = (index: number) => {
+    const newOptions = [...options];
+    newOptions.splice(index, 1);
+    setOptions(newOptions);
+  };
+
+  const isDisabled: boolean = false;
+
+  const buttonDeleteInputStyle: React.CSSProperties = isDisabled
+    ? { cursor: "not-allowed" }
+    : {};
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <div className="button-container ">
           <h2>Update the Poll</h2>
-          <button type="submit">Update Poll</button>
+          <div>
+            <Button
+              buttonText="Add Option"
+              type="button"
+              onClick={handleAddOption}
+            />
+            <Button buttonText="Update Poll" type="submit" />
+          </div>
         </div>
         <div className="create-poll-container">
           <label>
@@ -78,7 +107,6 @@ export const UpdatePoll: React.FC = () => {
               onChange={handleQuestionChange}
             />
           </label>
-          <br />
           {options.map((option, index) => (
             <label key={option.id} style={{ display: "flex" }}>
               Option {index + 1}:
@@ -92,6 +120,13 @@ export const UpdatePoll: React.FC = () => {
                   type="checkbox"
                   checked={option.isCorrect}
                   onChange={(event) => handleIsCorrectChange(event, index)}
+                />
+                <Button
+                  buttonText={<i>🗑️</i>}
+                  type="button"
+                  onClick={() => handleDeleteInputValue(index)}
+                  disabled={false}
+                  style={buttonDeleteInputStyle}
                 />
               </div>
             </label>
